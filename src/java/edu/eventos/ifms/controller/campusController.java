@@ -23,6 +23,14 @@ import javax.faces.model.SelectItem;
 @ViewScoped
 public class campusController {
 
+    public servidorRepository getServidorRepository() {
+        return servidorRepository;
+    }
+
+    public void setServidorRepository(servidorRepository servidorRepository) {
+        this.servidorRepository = servidorRepository;
+    }
+
     private campusModel campusModel;
     private campusRepository campusRepository;
     private estadoRepository estadoRepository;

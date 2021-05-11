@@ -19,6 +19,18 @@ import javax.faces.model.SelectItem;
 @ViewScoped
 public class eventoController {
 
+    public void setEventoModel(eventoModel eventoModel) {
+        this.eventoModel = eventoModel;
+    }
+
+    public void setEventoRepository(eventoRepository eventoRepository) {
+        this.eventoRepository = eventoRepository;
+    }
+
+    public ArrayList<Object> getListaDeEvento() {
+        return listaDeEvento;
+    }
+
     private eventoModel eventoModel;
     private eventoRepository eventoRepository;
     private final ArrayList<Object> listaDeEvento;

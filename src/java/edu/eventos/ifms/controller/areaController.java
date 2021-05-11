@@ -19,6 +19,10 @@ import javax.faces.model.SelectItem;
 @ViewScoped
 public class areaController {
 
+    public void setAreaModel(areaModel areaModel) {
+        this.areaModel = areaModel;
+    }
+
     private areaModel areaModel;
     private areaRepository areaRepository;
     private List<areaModel> listaDeArea;
