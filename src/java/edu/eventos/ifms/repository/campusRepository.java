@@ -6,7 +6,7 @@
 package edu.eventos.ifms.repository;
 
 import edu.eventos.ifms.model.campusModel;
-import edu.eventos.ifms.util.hibernateConector;
+import edu.eventos.ifms.util.NewHibernateUtil;
 import java.util.List;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
@@ -17,7 +17,7 @@ public class campusRepository {
     private Transaction transaction;
 
     public void salvar(campusModel campus){
-        this.session = hibernateConector.getSessionFactory().openSession();
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
         
         this.session.saveOrUpdate(campus);
@@ -27,7 +27,7 @@ public class campusRepository {
     }
     
     public List<campusModel> buscarTodos(){
-        this.session = hibernateConector.getSessionFactory().openSession();
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
         
         List<campusModel> listaDeCampus = this.session.createQuery("from campusModel").list();
@@ -38,7 +38,7 @@ public class campusRepository {
     }
                
     public void remover(long idCampus){
-        this.session = hibernateConector.getSessionFactory().openSession();
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
         
         campusModel campus = (campusModel) this.session.get(campusModel.class, idCampus);
@@ -49,7 +49,7 @@ public class campusRepository {
     }
     
     public campusModel buscarPorId(long idCampus){
-        this.session = hibernateConector.getSessionFactory().openSession();
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
         
         campusModel campus = (campusModel) this.session.get(campusModel.class, idCampus);

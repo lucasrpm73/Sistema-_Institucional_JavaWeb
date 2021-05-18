@@ -6,7 +6,7 @@
 package edu.eventos.ifms.repository;
 
 import edu.eventos.ifms.model.areaModel;
-import edu.eventos.ifms.util.hibernateConector;
+import edu.eventos.ifms.util.NewHibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,7 +16,7 @@ public class areaRepository {
     private Transaction transaction;
 
     public List<areaModel> buscar(){
-        this.session = hibernateConector.getSessionFactory().openSession();
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
         
         List<areaModel> listaDeAreas = this.session.createQuery("from areaModel").list();

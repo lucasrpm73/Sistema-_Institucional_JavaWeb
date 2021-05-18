@@ -6,7 +6,7 @@
 package edu.eventos.ifms.repository;
 
 import edu.eventos.ifms.model.eventoModel;
-import edu.eventos.ifms.util.hibernateConector;
+import edu.eventos.ifms.util.NewHibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,7 +16,7 @@ public class eventoRepository {
     private Transaction transaction;
 
     public List<eventoModel> buscar(){
-        this.session = hibernateConector.getSessionFactory().openSession();
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
         
         List<eventoModel> listaDeEventos = this.session.createQuery("from eventoModel").list();
@@ -27,7 +27,7 @@ public class eventoRepository {
     }
 
     public void salvar(eventoModel evento) {
-        this.session = hibernateConector.getSessionFactory().openSession();
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
         
         this.session.saveOrUpdate(evento);

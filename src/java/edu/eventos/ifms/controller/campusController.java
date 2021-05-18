@@ -84,7 +84,7 @@ public class campusController {
         ArrayList<SelectItem> itens = new ArrayList<SelectItem>();
         this.listaDeCampus = this.campusRepository.buscarTodos();
         for (campusModel campus : listaDeCampus) {
-            itens.add(new SelectItem(campus.getIdCampus(), campus.getCampusNome()));
+            itens.add(new SelectItem(campus.getIdCampus(), campus.getCampusNowme()));
         }
         return itens;
     }

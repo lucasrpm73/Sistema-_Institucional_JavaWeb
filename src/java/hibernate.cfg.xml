@@ -46,5 +46,14 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:derby://localhost:1527/frames1</property>
     <property name="hibernate.connection.username">nbuser</property>
     <property name="hibernate.connection.password">gl100819</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping class="edu.eventos.ifms.model.campusModel"/>
+    <mapping class="edu.eventos.ifms.model.areaModel"/>
+    <mapping class="edu.eventos.ifms.model.cidadeModel"/>
+    <mapping class="edu.eventos.ifms.model.estadoModel"/>
+    <mapping class="edu.eventos.ifms.model.eventoModel"/>
+    <mapping class="edu.eventos.ifms.model.pessoaInternaModel"/>
+    <mapping class="edu.eventos.ifms.model.pessoaModel"/>
+    <mapping class="edu.eventos.ifms.model.servidorModel"/>
   </session-factory>
 </hibernate-configuration>
