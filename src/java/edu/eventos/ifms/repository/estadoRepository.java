@@ -25,4 +25,21 @@ public class estadoRepository {
         this.session.close();
         return listaDeEstados;
     }
+    
+    
+     public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
 }

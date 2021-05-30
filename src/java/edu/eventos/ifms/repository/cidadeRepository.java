@@ -15,6 +15,22 @@ public class cidadeRepository {
     private Session session;
     private Transaction transaction;
 
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
     public List<cidadeModel> buscar(long IdEstado){
         this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
