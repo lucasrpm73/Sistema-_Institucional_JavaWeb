@@ -29,7 +29,7 @@ public class campusModel implements Serializable {
     private long idCampus;
 
     @Column(nullable = false, length = 80)
-    private String campusNowme;
+    private String campusNome;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @Fetch(FetchMode.JOIN)
@@ -52,12 +52,12 @@ public class campusModel implements Serializable {
         this.estado = new estadoModel();
     }
 
-     public String getCampusNowme() {
-        return campusNowme;
+     public String getCampusNome() {
+        return campusNome;
     }
 
-    public void setCampusNowme(String campusNowme) {
-        this.campusNowme = campusNowme;
+    public void setCampusNome(String campusNome) {
+        this.campusNome = campusNome;
     }
     public long getIdCampus() {
         return idCampus;
