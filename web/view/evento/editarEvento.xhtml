@@ -14,26 +14,31 @@ and open the template in the editor.
 
     <ui:define name="corpo">
         <div class="container">
-            <h1>Cadastrar Servidor</h1>
+            <f:metadata>
+                <f:viewParam value="#{eventoController.eventoModel.idEvento}" name="idEvento"/>
+                <f:viewAction action="#{eventoController.buscarevento()}" />
+            </f:metadata>
+            <h1>Editar Evento</h1>
             <h:form class="novo">
+                <h:inputHidden id="idCampus" value="#{eventoController.eventoModel.idEvento}"/>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="nomeServidor">Nome do Servidor</label>                
-                        <h:inputText class="form-control" id="nomeServidor" value="#{servidorController.servidorModel.pessoaNome}"/>
+                        <label for="nomeEvento">Nome do Evento</label>                
+                        <h:inputText class="form-control" id="nomeEvento" value="#{eventoController.eventoModel.eventoNome}"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="cpf">CPF</label>                
-                        <h:inputText class="form-control" id="cpf" value="#{servidorController.servidorModel.CPF}"/>
+                        <h:inputText class="form-control" id="cpf" value="#{eventoController.eventoModel.CPF}"/>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="telefone">Telefone</label>                
-                        <h:inputText class="form-control" id="telefone" value="#{servidorController.servidorModel.telefone}"/>
+                        <h:inputText class="form-control" id="telefone" value="#{eventoController.eventoModel.telefone}"/>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="dataIngresso">Data Ingresso</label>    
-                        <h:inputText p:type="date" class="form-control" id="dataIngresso" value="#{servidorController.servidorModel.dataIngresso}">
+                        <h:inputText p:type="date" class="form-control" id="dataIngresso" value="#{eventoController.eventoModel.dataIngresso}">
                             <f:convertDateTime dateStyle="short" pattern="yyyy-MM-dd"/>
                         </h:inputText>
                     </div>
@@ -41,20 +46,20 @@ and open the template in the editor.
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="idArea">Área</label>
-                        <h:selectOneMenu class="form-control" id="idArea" value="#{servidorController.servidorModel.area.idArea}">  
-                            <f:selectItems value="#{servidorController.areas}"/>    
+                        <h:selectOneMenu class="form-control" id="idArea" value="#{eventoController.eventoModel.area.idArea}">  
+                            <f:selectItems value="#{eventoController.areas}" />    
                         </h:selectOneMenu>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="siape">SIAPE</label>                
-                        <h:inputText class="form-control" id="siape" value="#{servidorController.servidorModel.SIAPE}"/>
+                        <h:inputText class="form-control" id="siape" value="#{eventoController.eventoModel.SIAPE}"/>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="cargo">Cargo</label>                
-                        <h:inputText class="form-control" id="cargo" value="#{servidorController.servidorModel.cargo}"/>
+                        <h:inputText class="form-control" id="cargo" value="#{eventoController.eventoModel.cargo}"/>
                     </div>
                 </div>
-                <h:commandButton class="btn btn-primary" value="salvar" action="#{servidorController.salvar()}"/>
+                <h:commandButton class="btn btn-primary" value="salvar" action="#{eventoController.salvar()}"/>
             </h:form>
         </div>
     </ui:define>

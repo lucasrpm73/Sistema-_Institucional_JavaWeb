@@ -11,7 +11,7 @@
             <h1>Buscar Área</h1>
             <hr/>
             <div class="field">
-                <table data-page-length='5' class="table table-bordered table-striped"  onload="#{areaController.buscarTodosArea()}">
+                <table data-page-length='5' class="table table-bordered table-striped"  onload="#{areaController.buscarTodasAreas()}">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -25,12 +25,12 @@
                                 <td>#{area.areaNome}</td>
                                 <td>
                                     <h:form>
-                                        <h:commandButton class="btn btn-secondary" value="Alterar" onclick="return confirm('Deseja realmente alterar o registro?')" action= "#{areaController.editar(campus.idArea)}"/>
+                                        <h:commandButton class="btn btn-secondary" value="Alterar" onclick="return confirm('Deseja realmente alterar o registro?')" action= "#{areaController.editar(area.idArea)}"/>
                                     </h:form>
                                 </td>
                                 <td>
                                     <h:form>
-                                        <h:commandButton class="btn btn-danger" value="Excluir" onclick="return confirm('Deseja realmente excluir o registro?')" action= "#{areaController.remover(campus.idArea)}"/>
+                                        <h:commandButton class="btn btn-danger" value="Excluir" onclick="return confirm('Deseja realmente excluir o registro?')" action= "#{areaController.remover(area.idArea)}"/>
                                     </h:form>
                                 </td>
                             </tr>

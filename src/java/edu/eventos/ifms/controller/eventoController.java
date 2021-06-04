@@ -5,9 +5,7 @@
  */
 package edu.eventos.ifms.controller;
 
-import edu.eventos.ifms.model.areaModel;
 import edu.eventos.ifms.model.eventoModel;
-import edu.eventos.ifms.repository.areaRepository;
 import edu.eventos.ifms.repository.eventoRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +16,11 @@ import javax.faces.model.SelectItem;
 @ManagedBean
 @ViewScoped
 public class eventoController {
+    
+    private eventoModel eventoModel;
+    private eventoRepository eventoRepository;
+    private List<eventoModel> listaDeEvento;
+    
 
     public void setEventoModel(eventoModel eventoModel) {
         this.eventoModel = eventoModel;
@@ -27,14 +30,9 @@ public class eventoController {
         this.eventoRepository = eventoRepository;
     }
 
-    public ArrayList<Object> getListaDeEvento() {
+    public List<eventoModel> getListaDeEvento() {
         return listaDeEvento;
     }
-
-    private eventoModel eventoModel;
-    private eventoRepository eventoRepository;
-    private final ArrayList<Object> listaDeEvento;
-    
     public eventoController() {
         this.eventoModel = new eventoModel();
         this.eventoRepository = new eventoRepository();
@@ -45,11 +43,19 @@ public class eventoController {
         this.eventoRepository.salvar(this.eventoModel);
     }
     
+      public void buscarEvento() {
+        this.eventoModel = this.eventoRepository.buscarPorId(this.eventoModel.getIdEvento());
+    }
+      
     public String salvarEdicao() {
         this.eventoRepository.salvar(this.eventoModel);
         return "buscarEvento.xhtml?faces-redirect=true";
     }
 
+     public void remover(long idEvento) {
+        this.eventoRepository.remover(idEvento);
+    }
+    
     public List<SelectItem> getEventos() {
         ArrayList<SelectItem> itens = new ArrayList<SelectItem>();
         List<eventoModel> listaDeEventos = this.eventoRepository.buscar();
@@ -59,6 +65,10 @@ public class eventoController {
         return itens;
     }
     
+    public void buscarTodosEventos() {
+        this.listaDeEvento = this.eventoRepository.buscarTodos();
+    }
+ 
     public eventoModel getEventoModel() {
         return eventoModel;
     }

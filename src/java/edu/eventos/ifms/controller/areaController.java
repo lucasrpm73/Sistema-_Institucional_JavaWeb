@@ -6,9 +6,7 @@
 package edu.eventos.ifms.controller;
 
 import edu.eventos.ifms.model.areaModel;
-import edu.eventos.ifms.model.servidorModel;
 import edu.eventos.ifms.repository.areaRepository;
-import edu.eventos.ifms.repository.servidorRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -50,7 +48,7 @@ public class areaController {
         return "editarArea.xhtml?faces-redirect=true&idServidor=" + idArea;
     }
     
-    public void buscarArea() {
+    public void buscarTodosArea() {
         this.areaModel = this.areaRepository.buscarPorId(this.areaModel.getIdArea());
     }
 

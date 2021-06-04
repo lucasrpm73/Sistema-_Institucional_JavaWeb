@@ -21,6 +21,7 @@ public class areaModel implements Serializable{
        
     @Column(nullable = false, length = 40)
     private String areaNome;
+    
 
     public long getIdArea() {
         return idArea;

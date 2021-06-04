@@ -8,6 +8,7 @@ package edu.eventos.ifms.repository;
 import edu.eventos.ifms.model.areaModel;
 import edu.eventos.ifms.util.NewHibernateUtil;
 import java.util.List;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -26,15 +27,49 @@ public class areaRepository {
         return listaDeAreas;
     }
 
-    public void salvar(areaModel areaModel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void salvar(areaModel area) {
+         this.session = NewHibernateUtil.getSessionFactory().openSession();
+        this.transaction = session.beginTransaction();
+        
+        this.session.saveOrUpdate(area);
+        
+        this.transaction.commit();
+        this.session.close();
     }
 
     public void remover(long idArea) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
+        this.transaction = session.beginTransaction();
+        
+        areaModel area = (areaModel) this.session.get(areaModel.class, idArea);
+        this.session.delete(area);
+        
+        this.transaction.commit();
+        this.session.close();
     }
+    
+    
+     public List<areaModel> buscarTodos(){
+        this.session = NewHibernateUtil.getSessionFactory().openSession();
+        this.transaction = session.beginTransaction();
+        
+        List<areaModel> listaDeArea = this.session.createQuery("from areaModel").list();
+        
+        this.transaction.commit();
+        this.session.close();
+        return listaDeArea;
+    }
+    
 
     public areaModel buscarPorId(long idArea) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          this.session = NewHibernateUtil.getSessionFactory().openSession();
+        this.transaction = session.beginTransaction();
+        
+        areaModel campus = (areaModel) this.session.get(areaModel.class, idArea);
+        Hibernate.initialize(campus.getIdArea());
+        
+        this.transaction.commit();
+        this.session.close();
+        return campus;
     }
 }
