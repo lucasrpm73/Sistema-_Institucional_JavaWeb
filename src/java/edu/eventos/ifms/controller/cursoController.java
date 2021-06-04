@@ -20,8 +20,8 @@ import javax.faces.model.SelectItem;
 public class cursoController {
     
     private cursoModel cursoModel;
-    private  cursoRepository cursoRepository;
-    private  areaRepository areaRepository;
+    private cursoRepository cursoRepository;
+    private areaRepository areaRepository;
     private List<cursoModel> listaDeCurso;
     
     public cursoController() {
