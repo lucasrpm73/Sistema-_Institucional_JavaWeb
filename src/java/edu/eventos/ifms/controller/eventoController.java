@@ -47,6 +47,10 @@ public class eventoController {
         this.eventoModel = this.eventoRepository.buscarPorId(this.eventoModel.getIdEvento());
     }
       
+       public String editar(long idEvento) {
+        return "editarEvento.xhtml?faces-redirect=true&idEvento=" + idEvento;
+    }
+      
     public String salvarEdicao() {
         this.eventoRepository.salvar(this.eventoModel);
         return "buscarEvento.xhtml?faces-redirect=true";
@@ -54,6 +58,10 @@ public class eventoController {
 
      public void remover(long idEvento) {
         this.eventoRepository.remover(idEvento);
+    }
+     
+      public void getEvento() {
+        this.eventoModel = this.eventoRepository.buscarPorId(this.eventoModel.getIdEvento());
     }
     
     public List<SelectItem> getEventos() {
@@ -80,9 +88,4 @@ public class eventoController {
     public eventoRepository getEventoRepository() {
         return eventoRepository;
     }
-
-    public void setAreaRepository(eventoRepository eventoRepository) {
-        this.eventoRepository = eventoRepository;
-    }
-
 }

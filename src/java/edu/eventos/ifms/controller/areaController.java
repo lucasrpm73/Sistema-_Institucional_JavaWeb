@@ -45,10 +45,14 @@ public class areaController {
     }
     
     public String editar(long idArea) {
-        return "editarArea.xhtml?faces-redirect=true&idServidor=" + idArea;
+        return "editarArea.xhtml?faces-redirect=true&idArea=" + idArea;
     }
     
     public void buscarTodosArea() {
+        this.areaModel = this.areaRepository.buscarPorId(this.areaModel.getIdArea());
+    }
+    
+    public void getArea() {
         this.areaModel = this.areaRepository.buscarPorId(this.areaModel.getIdArea());
     }
 

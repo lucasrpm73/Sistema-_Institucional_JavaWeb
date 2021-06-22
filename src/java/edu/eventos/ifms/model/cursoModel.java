@@ -13,29 +13,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "curso")
-@PrimaryKeyJoinColumn(name = "idCurso")
 public class cursoModel implements Serializable {
-    
+
     @ManyToOne(fetch = FetchType.EAGER)
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "idArea", insertable = true, updatable = true)
     private areaModel area;
-    
+
     @Id
     @GeneratedValue
-    private Long ID;
-    
+    private Long idCurso;
+
     @Column(nullable = false, length = 40)
     private String cursoNome;
-    
-       public cursoModel() {
+
+    public cursoModel() {
         this.area = new areaModel();
     }
 
@@ -47,25 +45,20 @@ public class cursoModel implements Serializable {
         this.area = area;
     }
 
-    public Long getID() {
-        return ID;
-    }
-
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
-
-       public String getCursoNome() {
+    public String getCursoNome() {
         return cursoNome;
     }
 
     public void setCursoNome(String cursoNome) {
         this.cursoNome = cursoNome;
     }
-    
-   
-    public long getIdCurso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public Long getIdCurso() {
+        return idCurso;
+    }
+
+    public void setIdCurso(Long idCurso) {
+        this.idCurso = idCurso;
     }
 
 }
