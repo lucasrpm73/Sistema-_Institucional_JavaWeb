@@ -15,51 +15,27 @@ and open the template in the editor.
     <ui:define name="corpo">
         <div class="container">
             <f:metadata>
-                <f:viewParam value="#{servidorController.servidorModel.idPessoa}" name="idServidor"/>
-                <f:viewAction action="#{servidorController.buscarServidor()}" />
+                <f:viewParam value="#{cursoController.cursoModel.idCurso}" name="idCurso"/>
+                <f:viewAction action="#{cursoController.buscarCurso()}" />
             </f:metadata>
-            <h1>Editar Servidor</h1>
+            <h1>Editar curso</h1>
             <h:form class="novo">
-                <h:inputHidden id="idCampus" value="#{servidorController.servidorModel.idPessoa}"/>
+                <h:inputHidden id="idCampus" value="#{cursoController.cursoModel.idCurso}"/>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="nomeServidor">Nome do Servidor</label>                
-                        <h:inputText class="form-control" id="nomeServidor" value="#{servidorController.servidorModel.pessoaNome}"/>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="cpf">CPF</label>                
-                        <h:inputText class="form-control" id="cpf" value="#{servidorController.servidorModel.CPF}"/>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="telefone">Telefone</label>                
-                        <h:inputText class="form-control" id="telefone" value="#{servidorController.servidorModel.telefone}"/>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="dataIngresso">Data Ingresso</label>    
-                        <h:inputText p:type="date" class="form-control" id="dataIngresso" value="#{servidorController.servidorModel.dataIngresso}">
-                            <f:convertDateTime dateStyle="short" pattern="yyyy-MM-dd"/>
-                        </h:inputText>
+                        <label for="nomecurso">Nome do curso</label>                
+                        <h:inputText class="form-control" id="nomeCurso" value="#{cursoController.cursoModel.cursoNome}"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="idArea">Área</label>
-                        <h:selectOneMenu class="form-control" id="idArea" value="#{servidorController.servidorModel.area.idArea}">  
-                            <f:selectItems value="#{servidorController.areas}" />    
+                        <h:selectOneMenu class="form-control" id="idArea" value="#{cursoController.cursoModel.area.idArea}">  
+                            <f:selectItems value="#{cursoController.areas}" />    
                         </h:selectOneMenu>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="siape">SIAPE</label>                
-                        <h:inputText class="form-control" id="siape" value="#{servidorController.servidorModel.SIAPE}"/>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="cargo">Cargo</label>                
-                        <h:inputText class="form-control" id="cargo" value="#{servidorController.servidorModel.cargo}"/>
-                    </div>
                 </div>
-                <h:commandButton class="btn btn-primary" value="salvar" action="#{servidorController.salvar()}"/>
+                <h:commandButton class="btn btn-primary" value="salvar" action="#{cursoController.salvar()}"/>
             </h:form>
         </div>
     </ui:define>

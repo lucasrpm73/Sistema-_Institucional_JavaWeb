@@ -19,25 +19,25 @@ and open the template in the editor.
                 <table data-page-length='5' class="table table-bordered table-striped"  onload="#{cursoController.buscarTodosCursos()}">
                     <thead>
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Area</th>                            
                         </tr>   
                     </thead>
                     <tbody> 
-                        <ui:repeat value="#{servidorController.listaDeServidor}" var="servidor">
+                        <ui:repeat value="#{cursoController.listaDeCurso}" var="curso">
                             <tr>
-                                <td>#{servidor.idPessoa}</td>
-                                <td>#{servidor.pessoaNome}</td>
-                                <td>#{servidor.cargo}</td>
-                                <td><h:outputText value="#{servidor.dataIngresso}"> <f:convertDateTime pattern="dd/MM/yyyy"/> </h:outputText></td>
+                                <td>#{curso.idCurso}</td>
+                                <td>#{curso.cursoNome}</td>
+                                <td>#{curso.area.areaNome}</td>
                                 <td>
                                     <h:form>
-                                        <h:commandButton class="btn btn-secondary" value="Alterar" onclick="return confirm('Deseja realmente alterar o registro?')" action= "#{servidorController.editar(servidor.idPessoa)}"/>
+                                        <h:commandButton class="btn btn-secondary" value="Alterar" onclick="return confirm('Deseja realmente alterar o registro?')" action= "#{cursoController.editar(curso.idCurso)}"/>
                                     </h:form>
                                 </td>
                                 <td>
                                     <h:form>
-                                        <h:commandButton class="btn btn-danger" value="Excluir" onclick="return confirm('Deseja realmente excluir o registro?')" action= "#{servidorController.remover(servidor.idPessoa)}"/>
+                                        <h:commandButton class="btn btn-danger" value="Excluir" onclick="return confirm('Deseja realmente excluir o registro?')" action= "#{cursoController.remover(curso.idCurso)}"/>
                                     </h:form>
                                 </td>
                             </tr>

@@ -31,7 +31,7 @@ public class cursoRepository {
         this.session = NewHibernateUtil.getSessionFactory().openSession();
         this.transaction = session.beginTransaction();
         
-        List<cursoModel> listaDeCursos = this.session.createQuery("from cursorModel").list();
+        List<cursoModel> listaDeCursos = this.session.createQuery("from cursoModel").list();
         
         this.transaction.commit();
         this.session.close();
