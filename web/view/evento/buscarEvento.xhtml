@@ -21,6 +21,7 @@ and open the template in the editor.
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
+                            <th scope="col">Data</th>
                             <th scope="col">#</th>
                         </tr>   
                     </thead>
@@ -29,6 +30,7 @@ and open the template in the editor.
                             <tr>
                                 <td>#{evento.idEvento}</td>
                                 <td>#{evento.eventoNome}</td>
+                                <td>#{evento.data}</td>
                                 <td>
                                     <h:form>
                                         <h:commandButton class="btn btn-secondary" value="Alterar" onclick="return confirm('Deseja realmente alterar o registro?')" action= "#{eventoController.editar(evento.idEvento)}"/>
