@@ -19,17 +19,17 @@ and open the template in the editor.
                 <table data-page-length='5' class="table table-bordered table-striped"  onload="#{servidorController.buscarTodosServidores()}">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            
                             <th scope="col">Nome</th>
                             <th scope="col">Cargo</th>
                             <th scope="col">Data Ingresso</th>
-                            <th scope="col">#</th>
+                            
                         </tr>   
                     </thead>
                     <tbody> 
                         <ui:repeat value="#{servidorController.listaDeServidor}" var="servidor">
                             <tr>
-                                <td>#{servidor.idPessoa}</td>
+                                
                                 <td>#{servidor.pessoaNome}</td>
                                 <td>#{servidor.cargo}</td>
                                 <td><h:outputText value="#{servidor.dataIngresso}"> <f:convertDateTime pattern="dd/MM/yyyy"/> </h:outputText></td>
